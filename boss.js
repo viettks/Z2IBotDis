@@ -6,7 +6,7 @@ const bossList = [
   { name: "WH", level: "1", sort: "3" },
   { name: "F", level: "2", sort: "1" },
   { name: "DO", level: "2", sort: "2" },
-  { name: "SP", level: "2", sort: "3" },
+  { name: "2SP", level: "2", sort: "3" },
   { name: "WA", level: "2", sort: "4" },
   { name: "SL", level: "3", sort: "1" },
   { name: "AN", level: "3", sort: "2" },
@@ -65,7 +65,7 @@ export const get_boss = async () => {
   var wh = [];
   var f = [];
   var doo = [];
-  var sp = [];
+  var sp2 = [];
   var wa = [];
   var sl = [];
   var an = [];
@@ -111,8 +111,8 @@ export const get_boss = async () => {
       an.push("(" + position + ")");
       continue;
     }
-    if (boss.name === "SP") {
-      sp.push("(" + position + ")");
+    if (boss.name === "2SP") {
+      sp2.push("(" + position + ")");
       continue;
     }
     if (boss.name === "WW") {
@@ -143,7 +143,7 @@ export const get_boss = async () => {
     Boss 💀💀:
     • Coordinates F: ${f.join(", ")}
     • Coordinates DO: ${doo.join(", ")}
-    • Coordinates SP:  ${sp.join(", ")}
+    • Coordinates SP:  ${sp2.join(", ")}
     • Coordinates WA: ${wa.join(", ")}
     Boss 💀💀💀:
     • Coordinates SL: ${sl.join(", ")}

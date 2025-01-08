@@ -25,7 +25,7 @@ function bossChoices() {
     { name: "WH", value: "WH" },
     { name: "F", value: "F" },
     { name: "DO", value: "DO" },
-    { name: "SP", value: "SP" },
+    { name: "2SP", value: "2SP" },
     { name: "WA", value: "WA" },
     { name: "SL", value: "SL" },
     { name: "AN", value: "AN" },
