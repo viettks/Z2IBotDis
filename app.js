@@ -4,6 +4,7 @@ import {
   InteractionType,
   InteractionResponseType,
   verifyKeyMiddleware,
+  InteractionResponseFlags,
 } from "discord-interactions";
 import { getRandomEmoji } from "./utils.js";
 import { set_boss, get_boss, remove_boss } from "./boss.js";
@@ -59,6 +60,7 @@ app.post(
         let response = await set_boss(input.name, input.position);
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          flags: InteractionResponseFlags.EPHEMERAL,
           data: {
             content: `${response}`,
           },
@@ -72,10 +74,12 @@ app.post(
           input[option.name] = option.value;
         }
         console.log(input);
+        remove_boss(input.name, input.position);
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: `remove boss ${input.name} at ${input.position}`,
+            flags: InteractionResponseFlags.EPHEMERAL,
           },
         });
       }
@@ -87,13 +91,18 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: `${response}`,
+            flags: InteractionResponseFlags.EPHEMERAL,
+            embeds: [
+              {
+                image: {
+                  url: "https://cdn.discordapp.com/app-assets/1326795645947875378/1326803354718048257.png?size=1024",
+                },
+                type: "rich",
+                description: "",
+                color: 0x00ffff,
+              },
+            ],
           },
-          files: [
-            {
-              name: "img",
-              URL: "https://cdn.discordapp.com/attachments/1320047080567472191/1326378846127259658/BOSS.webp?ex=677f360f&is=677de48f&hm=e4ef7c1579054617aeb1436089c2654da582474ec3773e921ac995b615ecb3e9&",
-            },
-          ],
         });
       }
 

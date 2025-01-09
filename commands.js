@@ -115,7 +115,7 @@ const REMOVE_BOSS_COMMAND = {
 const GET_BOSS_COMMAND = {
   name: "boss",
   description: "Get boss for the server",
-  options: [],
+  options: []
 };
 
 const ALL_COMMANDS = [
