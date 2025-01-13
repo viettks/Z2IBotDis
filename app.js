@@ -39,18 +39,6 @@ app.post(
     if (type === InteractionType.APPLICATION_COMMAND) {
       const { name } = data;
 
-      // "test" command
-      if (name === "test") {
-        // Send a message into the channel where command was triggered from
-        return res.send({
-          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-          data: {
-            // Fetches a random emoji to send from a helper function
-            content: `hello world ${getRandomEmoji()}`,
-          },
-        });
-      }
-
       if (name === "set_boss") {
         let options = data.options;
         let input = {};
@@ -60,9 +48,9 @@ app.post(
         let response = await set_boss(input.name, input.position);
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-          flags: InteractionResponseFlags.EPHEMERAL,
           data: {
             content: `${response}`,
+            flags: InteractionResponseFlags.EPHEMERAL,
           },
         });
       }
