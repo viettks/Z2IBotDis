@@ -13,6 +13,8 @@ const bossList = [
   { name: "SP", level: "3", sort: "3" },
   { name: "WW", level: "3", sort: "4" },
   { name: "DR", level: "3", sort: "5" },
+  { name: "DF", level: "4", sort: "1" },
+  { name: "4SL", level: "4", sort: "2" },
   { name: "NHAMA", level: "3", sort: "6" },
 ];
 
@@ -72,6 +74,8 @@ export const get_boss = async () => {
   var sp = [];
   var ww = [];
   var dr = [];
+  var df = [];
+  var sl4 = [];
   var nhama = [];
   for (let boss of listBoss) {
     let position = boss.position;
@@ -127,6 +131,14 @@ export const get_boss = async () => {
       nhama.push("(" + position + ")");
       continue;
     }
+    if (boss.name === "DF") {
+      df.push("(" + position + ")");
+      continue;
+    }
+    if (boss.name === "4SL") {
+      sl4.push("(" + position + ")");
+      continue
+    }
   }
 
   var typeName = "Buổi sáng";
@@ -151,6 +163,10 @@ export const get_boss = async () => {
     • Coordinates SP: ${sp.join(", ")}
     • Coordinates WW: ${ww.join(", ")}
     • Coordinates DR: ${dr.join(", ")}
+    • Coordinates NHAMA: ${nhama.join(", ")}
+    Boss 💀💀💀💀:
+    • Coordinates SL: ${sl4.join(", ")}
+    • Coordinates DF: ${df.join(", ")}
     • Coordinates NHAMA: ${nhama.join(", ")}
     `;
   return response;

@@ -32,6 +32,8 @@ function bossChoices() {
     { name: "SP", value: "SP" },
     { name: "WW", value: "WW" },
     { name: "DR", value: "DR" },
+    { name: "DF", value: "DF" },
+    { name: "4SL", value: "4SL" },
     { name: "NHAMA", value: "NHAMA" },
   ];
   return arr;
